@@ -1,0 +1,41 @@
+Spring Config Server
+REQ : http://localhost:8888/item/macd
+
+RES:
+{
+    "name": "item",
+    "profiles": [
+        "macd"
+    ],
+    "label": null,
+    "version": "e01cbea212695bb44433d20ce39e52f71034c4e5",
+    "state": null,
+    "propertySources": [
+        {
+            "name": "https://github.com/pratik502/Programs/CloudProperties/item-macd.properties",
+            "source": {
+                "item1": "pizzapuff",
+                "item2": "Aloowrap"
+            }
+        },
+        {
+            "name": "https://github.com/pratik502/Programs/CloudProperties/item.properties",
+            "source": {
+                "item1": "idali",
+                "item2": "dosa"
+            }
+        }
+    ]
+}
+
+
+
+
+Spring Config Client
+REQ: http://localhost:8080/Items/get
+
+RES:
+{
+    "item1": "pizzapuff",
+    "item2": "Aloowrap"
+}
