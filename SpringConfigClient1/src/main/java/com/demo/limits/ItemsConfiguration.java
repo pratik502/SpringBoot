@@ -2,6 +2,7 @@ package com.demo.limits;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Component;
 
 import lombok.AllArgsConstructor;
@@ -15,7 +16,8 @@ import lombok.Setter;
 @Component
 @NoArgsConstructor
 @AllArgsConstructor
-//@ConfigurationProperties(prefix="item")  //This is working when property path file is local
+@RefreshScope
+//@ConfigurationProperties(prefix = "items")  //This is working when property path file is local
 public class ItemsConfiguration {
 
 	@Value("${item1}") 
