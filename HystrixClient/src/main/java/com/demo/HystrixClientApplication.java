@@ -2,25 +2,23 @@ package com.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-public class SpringDiscoveryClientConsumerApplication {
+@EnableCircuitBreaker //Very important annotation if you want hystrix to work
+public class HystrixClientApplication {
 
-	//If you comment @LoadBalanced annotation then it will give unknown host exception
-	//as FILE-PATH is not actual path, it is service name and it won't be recognized 
 	@LoadBalanced
 	@Bean
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
 	}
-
+	
 	public static void main(String[] args) {
-		SpringApplication.run(SpringDiscoveryClientConsumerApplication.class, args);
+		SpringApplication.run(HystrixClientApplication.class, args);
 	}
 
 }
