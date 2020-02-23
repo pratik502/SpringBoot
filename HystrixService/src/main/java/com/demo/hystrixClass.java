@@ -21,6 +21,18 @@ public class hystrixClass {
 		return "Hello from hystrix service";
 
 	}
+	
+	@GetMapping("/get1")
+	public String get1() {
+
+		Random rand = new Random();
+		int randomNum = rand.nextInt((3 - 1) + 1) + 1;
+		//if (randomNum == 3)
+			sleep();
+
+		return "Hello from hystrix 1111 service";
+
+	}
 
 	private void sleep() {
 		try {
