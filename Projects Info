@@ -3,3 +3,8 @@ If you want to test Hystrix then you need to run below 3 projects
 1)EurekaServer
 2)HystrixClient
 3)HystrixService
+
+
+Project 2
+Run SpringCloudServer1 and SpringConfigClient1
+No need of Eureka Server
