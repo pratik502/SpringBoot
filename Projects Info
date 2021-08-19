@@ -6,5 +6,14 @@ If you want to test Hystrix then you need to run below 3 projects
 
 
 Project 2
-Run SpringCloudServer1 and SpringConfigClient1
+Run SpringCloudServer1 (8888) and SpringConfigClient1 (8081)
 No need of Eureka Server
+
+If we change any property in the Cloud server (e.g Item2) then it will be immediately reflected in cloud server (http://localhost:8888/Item/macd). No need to refresh actuator
+But in the ConfigClient1, it will NOT reflect unless we refresh actuator endpoint 
+For Client ,we need to call below service
+
+C:\Users\pagadge.I-FLEX>curl localhost:8081/actuator/refresh -d {} -H "Content-Type: application/json"
+["config.client.version","item2"]
+
+It will return changed values
