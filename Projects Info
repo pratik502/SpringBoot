@@ -16,4 +16,11 @@ For Client ,we need to call below service
 C:\Users\pagadge.I-FLEX>curl localhost:8081/actuator/refresh -d {} -H "Content-Type: application/json"
 ["config.client.version","item2"]
 
+Now change all 2 props in macd file (Item-macd.properties)and 1 property in general property file (Item.properties) on this github.
+and hit URL. You can see below response
+
+C:\Users\pagadge.I-FLEX>curl localhost:8081/actuator/refresh -d {} -H "Content-Type: application/json"
+["config.client.version","item2","item1"]
+
+
 It will return changed values
